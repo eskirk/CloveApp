@@ -2,14 +2,23 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-class Device extends React.Component {
+export default class Device extends React.Component {
    render() {
-      return(
-         <Text>
-            Device
-         </Text>
+      return (
+         <View style={styles.container}>
+            <Text>
+               Device
+            </Text>
+         </View>
       )
    }
 }
 
-export default Device;
+const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+   },
+});
