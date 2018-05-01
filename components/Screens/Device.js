@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 
 
 export default class Device extends React.Component {
    render() {
       return (
-         <View style={styles.container}>
+         <ScrollView contentContainerStyle={styles.container}>
             <Text>
                Device
             </Text>
-         </View>
+         </ScrollView>
       )
    }
 }
