@@ -1,9 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 
 
-class Device extends React.Component {
-
+export default class Device extends React.Component {
+   render() {
+      return (
+         <ScrollView contentContainerStyle={styles.container}>
+            <Text>
+               Device
+            </Text>
+         </ScrollView>
+      )
+   }
 }
 
-export default Device;
+const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+   },
+});

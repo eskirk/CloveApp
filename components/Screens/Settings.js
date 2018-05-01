@@ -1,9 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 
 
-class Settings extends React.Component {
-
+export default class Settings extends React.Component {
+   render() {
+      return(
+         <ScrollView contentContainerStyle={styles.container}>
+            <Text>
+               Settings
+            </Text>
+         </ScrollView>
+      )
+   }
 }
 
-export default Settings;
+const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+   },
+});
