@@ -2,43 +2,48 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import BottomNavigation, { Tab, NavigationComponent } from 'react-native-material-bottom-navigation';
 import Icon from 'react-native-vector-icons/Entypo';
+import { TabNavigator } from 'react-navigation';
+
+import Home from '../Screens/Home';
+import Device from '../Screens/Device';
+import Plants from '../Screens/Plants';
+import Settings from '../Screens/Settings';
+
+const Nav = TabNavigator(
+         {
+            Device: { screen: Device },
+            Plants: { screen: Plants },
+            Settings: { screen: Settings }
+         },
+         {
+            // tabBarComponent: NavigationComponent,
+            tabBarPosition: 'bottom',
+            tabBarOptions: {
+               bottomNavigationOptions: {
+                  labelColor: 'black',
+                  tabs: {
+                     Device: {
+                        barBackgroundColor: '#37474F',
+                        labelColor: 'black'
+                     },
+                     Plants: {
+                        barBackgroundColor: "#00796B",
+                        labelColor: 'black'
+                     },
+                     Settings: {
+                        barBackgroundColor: "#5D4037",
+                        labelColor: 'black'
+                     }
+                  }
+               }
+            }
+         });
 
 
 class Navbar extends React.Component {
+
    render() {
-      return (
-         <BottomNavigation
-            labelColor="white"
-            rippleColor="white"
-            style={{
-               height: 56,
-               elevation: 8,
-               position: 'absolute',
-               left: 0,
-               bottom: 0,
-               right: 0
-            }}
-         >
-            <Tab
-               barBackgroundColor="#00796B"
-               label="Plants"
-               icon={<Icon size={24} color="white" name="leaf" />}
-               onPress={() => this.plantsPage()}
-            />
-            <Tab
-               barBackgroundColor="#37474F"
-               label="Device"
-               icon={<Icon size={24} color="white" name="database" />}
-               onPress={() => this.devicePage()}
-            />
-            <Tab
-               barBackgroundColor="#5D4037"
-               label="Settings"
-               icon={<Icon size={24} color="white" name="menu" />}
-               onPress={() => this.settingsPage()}
-            />
-         </BottomNavigation>
-      )
+      return <Nav/>;
    }
 
    settingsPage() {
