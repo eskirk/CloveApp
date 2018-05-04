@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Home from '../Screens/Home';
@@ -25,7 +25,11 @@ export const Navbar = TabNavigator(
       Plants: {
          screen: Plants,
          navigationOptions: {
-            tabBarLabel: 'Plants'
+            tabBarLabel: 'Plants',
+            // tabBarIcon: <Icon name="flower" size={30}/>,
+            tabBarOptions: {
+               showIcon: true,
+            }
          }
       },
       Settings: {
@@ -50,7 +54,7 @@ export const Navbar = TabNavigator(
             tabs: {
                Home: {
                   barBackgroundColor: '#37474F',
-                  labelColor: 'black'
+                  labelColor: 'black',
                },
                Device: {
                   barBackgroundColor: '#37474F',
