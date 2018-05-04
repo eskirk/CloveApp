@@ -10,7 +10,7 @@ export default class Plants extends React.Component {
                Plants
             </Text>
          </ScrollView>
-      )
+      );
    }
 }
 

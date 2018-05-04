@@ -10,7 +10,7 @@ export default class Settings extends React.Component {
                Settings
             </Text>
          </ScrollView>
-      )
+      );
    }
 }
 

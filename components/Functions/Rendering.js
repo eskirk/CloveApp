@@ -1,6 +1,6 @@
-export default function renderIf(condition, content) {
+export default function renderIf(condition, content, other) {
    if (condition)
-      return content;
+      return content();
    else
-      return null;
+      return other();
 }
