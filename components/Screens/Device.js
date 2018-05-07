@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, View, Button, Modal } from 'react-native';
+import { StyleSheet, Text, ScrollView, View, Button, Modal, Image } from 'react-native';
 
 
 export default class Device extends React.Component {
@@ -66,6 +66,11 @@ export default class Device extends React.Component {
                <Text>
                   Finding Devices...
                </Text>
+               <Image
+                  source={require('../assets/rendering.png')}
+                  width={90}
+                  height={40}
+               />
             <Button
                title='Connect Device'
                onPress={() => this.connectDevice()}

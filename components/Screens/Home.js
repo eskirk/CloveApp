@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, View, Button, Modal } from 'react-native';
+import { StyleSheet, Text, ScrollView, View, Button, Modal, TextInput } from 'react-native';
 
 import renderIf from '../Functions/Rendering';
 import logIn from '../Functions/User';
@@ -11,6 +11,8 @@ export default class Home extends React.Component {
       this.state = {
          loggedIn: false,
          logInVisible: false,
+         loginText: '',
+         passText: '' 
       }
    }
 
@@ -20,20 +22,22 @@ export default class Home extends React.Component {
             {!this.state.loggedIn ?
                this.loginView() : this.welcomeView()
             }
-            {this.modalView()}
+            {
+               this.modalView()
+            }
          </ScrollView>
       );
    }
 
    loginView() {
-      return(
+      return (
          <View>
             <Text contentContainerStyle={styles.container}>
                Welcome to Pantry by Clove
                Please log in to continue
             </Text>
-            <Button 
-               title='Log In' 
+            <Button
+               title='Log In'
                onPress={() => this.logIn()}
             />
          </View>
@@ -41,29 +45,40 @@ export default class Home extends React.Component {
    }
 
    welcomeView() {
-      return(
+      return (
          <Text>
-            Welcome to Clove! 
-         </Text>  
+            Welcome to Clove!
+         </Text>
       )
    }
 
    modalView() {
-      return(
+      return (
          <Modal
-               animationType="slide"
-               transparent={false}
-               visible={this.state.logInVisible}
-               onRequestClose={() => {alert('Modal has been closed.');}}
-            >
+            animationType='slide'
+            transparent={false}
+            visible={this.state.logInVisible}
+            onRequestClose={() => { alert('Modal has been closed.'); }}
+         >
             <View style={styles.container}>
-               <Text>
-                  Logging In
-               </Text>
-            <Button
-               title='Log In'
-               onPress={() => this.logIn()}
-            />
+               <TextInput
+                  style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 0 }}
+                  placeholder='Username'
+                  textAlign='center'
+                  onChangeText={(text) => this.setState({ loginText: text })}
+                  value={this.state.loginText}
+               />
+               <TextInput
+                  style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 0 }}
+                  placeholder='Password'
+                  textAlign='center'
+                  onChangeText={(text) => this.setState({ passTest: text })}
+                  value={this.state.passText}
+               />
+               <Button
+                  title='Log In'
+                  onPress={() => this.logIn()}
+               />
             </View>
          </Modal>
       )

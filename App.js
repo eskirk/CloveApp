@@ -1,22 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView, Navigator } from 'react-native';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider, connect } from 'react-redux';
 
+import reducer from './reducer';
 import { Navbar } from './components/Navbar/Navbar';
 
-const loggedIn = false;
+const store = createStore(reducer);
 
 export default class App extends React.Component {
    constructor() {
       super();
-
-      this.state = {
-         loggedIn: false
-      }
    }
    
    render() {
       return(
-         <Navbar/>
+         <Provider store={store}>
+            <Navbar/>
+         </Provider>
       );
    }
 }
