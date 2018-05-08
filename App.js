@@ -6,6 +6,8 @@ import { Provider, connect } from 'react-redux';
 import reducer from './reducer';
 import { Navbar } from './components/Navbar/Navbar';
 
+console.disableYellowBox = true;
+
 const store = createStore(reducer);
 
 export default class App extends React.Component {
