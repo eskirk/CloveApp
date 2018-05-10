@@ -62,14 +62,15 @@ export default class Home extends React.Component {
          >
             <View style={styles.container}>
                <TextInput
-                  style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 0 }}
+                  style={{ height: 30, width: 100, borderColor: 'gray', borderWidth: 0 }}
                   placeholder='Username'
                   textAlign='center'
                   onChangeText={(text) => this.setState({ loginText: text })}
                   value={this.state.loginText}
                />
                <TextInput
-                  style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 0 }}
+		  secureTextEntry={true}
+                  style={{ height: 30, width: 100, borderColor: 'gray', borderWidth: 0 }}
                   placeholder='Password'
                   textAlign='center'
                   onChangeText={(text) => this.setState({ passText: text })}
