@@ -72,7 +72,7 @@ export default class Home extends React.Component {
                   style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 0 }}
                   placeholder='Password'
                   textAlign='center'
-                  onChangeText={(text) => this.setState({ passTest: text })}
+                  onChangeText={(text) => this.setState({ passText: text })}
                   value={this.state.passText}
                />
                <Button
