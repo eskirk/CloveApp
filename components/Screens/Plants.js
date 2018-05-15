@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, Picker } from 'react-native';
+import { StyleSheet, Text, View, Picker } from 'react-native';
 
 
 export default class Plants extends React.Component {
@@ -7,20 +7,22 @@ export default class Plants extends React.Component {
       super();
 
       this.state = {
-         language: '',
-         array: ["elliot", "Kirk", "man"],
-         selectedItem: "elliot",
+         array: ["Herbs", "Exotic", "Salad Greens"],
+         selectedItem: "",
       }
    }
    render() {
       return (
-         <ScrollView contentContainerStyle={styles.container}>
-            {this.pepperPicker()}
-         </ScrollView>
+         <View contentContainerStyle={styles.container}>
+            <Text> 
+               Environment
+            </Text>         
+            {this.environmentPicker()}
+         </View>
       );
    }
 
-   pepperPicker() {
+   environmentPicker() {
 
       let arrayItems = this.state.array.map((s, i) => {
          return <Picker.Item key = {s} value = {s} label = {s} />
@@ -29,14 +31,13 @@ export default class Plants extends React.Component {
       return (
          <Picker
 	    selectedValue={this.state.selectedItem}
-	    style={{ height: 50, width: 100 }}
-	    onValueChange={(itemValue, itemIndex) => this.setState({arrayItems: itemValue})}>
+	    style={styles.picker}
+	    onValueChange={(itemValue, itemPosition) => this.setState({selectedItem: itemValue})}>
             {arrayItems}
 	 </Picker>
       )
    }
 }
-
 
 
 const styles = StyleSheet.create({
@@ -45,5 +46,10 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+   },
+
+   picker: {
+      height: 50,
+      width: 400,
    },
 });
